@@ -1,0 +1,26 @@
+<app-navbar></app-navbar>
+<div class="login-container">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit();">
+  <div class="login-form">
+      <div class="title">
+          <h1>Login</h1>
+      </div>
+      <div class="form">
+      <span id="error">Incorrect email or password. Please try again. </span>
+          <div class="input">
+              <div class="field">
+                  <div class="email-icon">＠</div>
+                  <input formControlName="email" name="email" type="text" placeholder="Email" required />
+              </div>
+          </div>
+          <div class="input">
+              <div class="field">
+                  <div class="password-icon">🔑</div>
+                  <input formControlName="password" name="password" type="password" placeholder="Password" required />
+              </div>
+          </div>
+          <button id="submit-btn" type="submit">Submit</button>
+      </div>
+  </div>
+</form>
+</div>

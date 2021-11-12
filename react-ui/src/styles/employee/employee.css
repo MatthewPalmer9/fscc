@@ -1,0 +1,208 @@
+.container div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+}
+
+.container div h1 {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid black;
+}
+
+table {
+  width: 60vw;
+  margin: 10px auto;
+  text-align: center;
+  border: 1px solid black;
+  background-color: white;
+}
+
+table th {
+  padding: 5px;
+  border-bottom: 1px solid black;
+}
+
+.form_container {
+  width: 100%;
+  border-top-left-radius: 20px;
+}
+
+.form_container #list_return_btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #4872fc;
+  color: white;
+  font-weight: bold;
+  -webkit-transition: 300ms;
+  transition: 300ms;
+}
+
+.form_container #list_return_btn:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 0 3px rgba(72, 114, 252, 0.8);
+          box-shadow: 0 0 0 3px rgba(72, 114, 252, 0.8);
+}
+
+.form_container h1 {
+  text-align: center;
+}
+
+.form_container .edit__form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 20px auto;
+  height: 450px;
+  width: 900px;
+  background-color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.form_container .edit__form #confirm_changes_btn:disabled {
+  width: 200px;
+  height: 40px;
+  margin: 20px auto;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: #525252;
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  font-weight: bold;
+}
+
+.form_container .edit__form #confirm_changes_btn:disabled:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 0 3px rgba(82, 82, 82, 0.8);
+          box-shadow: 0 0 0 3px rgba(82, 82, 82, 0.8);
+}
+
+.form_container .edit__form #confirm_changes_btn {
+  width: 200px;
+  height: 40px;
+  margin: 20px auto;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: darkgreen;
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  font-weight: bold;
+}
+
+.form_container .edit__form #confirm_changes_btn:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 0 3px rgba(0, 100, 0, 0.8);
+          box-shadow: 0 0 0 3px rgba(0, 100, 0, 0.8);
+}
+
+.form_container .edit__form #delete_btn {
+  width: 200px;
+  height: 40px;
+  margin: 20px auto;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  background-color: #770000;
+  -webkit-transition: 250ms;
+  transition: 250ms;
+  font-weight: bold;
+}
+
+.form_container .edit__form #delete_btn:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 0 0 0 3px rgba(119, 0, 0, 0.8);
+          box-shadow: 0 0 0 3px rgba(119, 0, 0, 0.8);
+}
+
+.form_container .edit__form .title {
+  background-color: black;
+  color: white;
+  margin-bottom: 20px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.form_container .edit__form .title h1 {
+  text-align: center;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.form_container .edit__form .rows {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.form_container .edit__form .rows .choices {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.form_container .edit__form .rows .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin: 15px 0;
+}
+
+.form_container .edit__form .rows .row .input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 230px;
+}
+
+.form_container .edit__form .rows .row .input .errors {
+  margin: 2px;
+  font-size: 0.8rem;
+  color: red;
+}
+
+.form_container .edit__form .rows .row .input label {
+  font-weight: bold;
+}
+
+.form_container .edit__form .rows .row .input .view__field {
+  background-color: lightgrey;
+  min-height: 20px;
+  padding: 2px;
+}
+
+.form_container .edit__form .rows .row .input input:invalid {
+  border: 1px solid red;
+}
+/*# sourceMappingURL=employee.css.map */

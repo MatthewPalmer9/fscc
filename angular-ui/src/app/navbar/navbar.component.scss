@@ -1,0 +1,68 @@
+@mixin FlexColumns {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin FlexRows {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin FlexCenter {
+  justify-content: center;
+  align-items: center;
+}
+
+body, html {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#navbar {
+  @include FlexRows();
+  position: sticky;
+  background-color: black;
+  width: 100%;
+  height: 80px;
+
+  ul {
+      width: 80%;
+      list-style: none;
+  }
+
+  div {
+      display: flex;
+      @include FlexCenter();
+      width: 50%;
+
+      span {
+          font-size: 32px;
+          color: white;
+
+          a {
+              text-decoration: none;
+              color: white;
+          }
+      }
+
+      button {
+          @include FlexCenter();
+          height: 50%;
+          width: 100px;
+          border-radius: 10px;
+          border: none;
+          margin: auto;
+          background-color: green;
+          color: white;
+          transition: 300ms;
+
+          &:hover {
+              cursor: pointer;
+              box-shadow: 0 0 0 3px rgba(0, 128, 0, 0.8);
+          }
+      }
+  }
+}

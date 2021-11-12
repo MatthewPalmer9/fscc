@@ -1,0 +1,75 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  height: 100vh;
+  width: 100vw;
+  background-color: #dadada;
+
+  div {
+    display: flex;
+    // width: 100vw;
+
+    h1 {
+        text-align: center;
+        padding-bottom: 10px;
+        border-bottom: 1px solid black;
+    }
+  }
+
+  .header {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-top: 150px;
+
+      .dashboard-choices {
+          display: flex;
+          justify-content: space-evenly;
+          width: 300px;
+          height: 50px;
+          margin: 0 auto;
+
+          #dash_view_btn, #dash_create_btn {
+              border: none;
+              border-radius: 10px;
+              color: white;
+              font-weight: bold;
+              transition: 300ms;
+          }
+
+          #dash_view_btn {
+              padding: 15px;
+              background-color: rgb(82, 82, 240);
+
+              &:hover {
+                  cursor: pointer;
+                  box-shadow: 0 0 0 3px rgba(82, 82, 240, 0.8);
+              }
+          }
+
+          #dash_create_btn {
+              padding: 15px;
+              background-color: green;
+
+              &:hover {
+                  cursor: pointer;
+                  box-shadow: 0 0 0 3px rgba(0, 128, 0, 0.8);
+              }
+          }
+      }
+
+      h1,h3 {
+          margin: 5px auto;
+      }
+
+      h1 {
+          font-size: 3.5rem;
+      }
+  }
+}
+

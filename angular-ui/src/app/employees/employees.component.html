@@ -1,0 +1,27 @@
+<app-navbar-loggedin></app-navbar-loggedin>
+<router-outlet></router-outlet>
+<div *ngIf="auth" class="employee-container">
+  <div>
+    <h1>EMPLOYEE LIST</h1>
+  </div>
+  <table>
+    <tbody>
+        <tr>
+            <th>Employee ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Actions</th>
+        </tr>
+        <tr *ngFor="let employee of employeeArray">
+          <td>{{ employee.userId }}</td>
+          <td>{{ employee.firstName }}</td>
+          <td>{{ employee.lastName }}</td>
+          <td>
+              <a href="/employee/{{employee.id}}/view"><button value={{employee.id}} id="view__btn">View</button></a>
+              <a href="/employee/{{employee.id}}/edit"><button value={{employee.id}} id="edit__btn">Edit</button></a>
+          </td>
+        </tr>
+
+    </tbody>
+  </table>
+</div>
