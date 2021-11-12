@@ -10,6 +10,7 @@ services:
   #   \/                       \-\/-/                       \/
   # 
 
+  #### REACT UI ####
     react-ui:
       image: react-ui
       build:
@@ -20,6 +21,21 @@ services:
         - "3000:3000"
       environment:
         - REACT_APP_API_URL=http://localhost:9000
+      depends_on:
+        - zuul-api
+      networks:
+        - backend
+  ### ANGULAR UI ####
+    angular-ui:
+      image: angular-ui
+      build:
+        context: ./angular-ui
+        dockerfile: Dockerfile
+      container_name: angular-ui
+      ports: 
+        - "4200:4200"
+      environment:
+        - ANGULAR_APP_API_URL=http://localhost:9000
       depends_on:
         - zuul-api
       networks:

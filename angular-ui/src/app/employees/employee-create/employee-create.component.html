@@ -10,34 +10,44 @@
           <div class="row">
               <div class="input">
                   <label for="firstName">First Name</label>
-                  <input formControlName="firstName" name="firstName" />
-                  <p class="errors"></p>
+                  <input formControlName="firstName" name="firstName" required minlength="4" maxlength="35"/>
+                  <p class="errors" *ngIf="errors.firstName">
+                    {{errors.firstName}}
+                  </p>
               </div>
               <div class="input">
                   <label for="lastName">Last Name</label>
-                  <input formControlName="lastName"name="lastName" />
-                  <p class="errors"></p>
+                  <input formControlName="lastName"name="lastName" required minlength="4" maxlength="35"/>
+                  <p class="errors" *ngIf="errors.lastName">
+                    {{errors.lastName}}
+                  </p>
               </div>
               <div class="input">
                   <label for="email">Email</label>
-                  <input formControlName="email" name="email" />
-                  <p class="errors"></p>
+                  <input formControlName="email" name="email" required/>
+                  <p class="errors" *ngIf="errors.email">
+                    {{errors.email}}
+                  </p>
               </div>
           </div>
           <div class="row">
               <div class="input">
                   <label for="address">Address</label>
-                  <input formControlName="address" name="address" />
-                  <p class="errors"></p>
+                  <input formControlName="address" name="address" required/>
+                  <p class="errors" *ngIf="errors.address">
+                    {{errors.address}}
+                  </p>
               </div>
               <div class="input">
                   <label for="city">City</label>
-                  <input formControlName="city" name="city" />
-                  <p class="errors"></p>
+                  <input formControlName="city" name="city" required/>
+                  <p class="errors" *ngIf="errors.city">
+                    {{errors.city}}
+                  </p>
               </div>
               <div class="input">
                   <label for="state">State</label>
-                  <select formControlName="state" name="state" id="state">
+                  <select formControlName="state" name="state" id="state" required>
                       <option selected disabled>--SELECT STATE--</option>
                       <option value="Alabama">Alabama</option>
                       <option value="Alaska">Alaska</option>
@@ -89,24 +99,32 @@
                       <option value="Wisconsin">Wisconsin</option>
                       <option value="Wyoming">Wyoming</option>
                   </select>
-                  <p class="errors"></p>
+                  <p class="errors" *ngIf="errors.state">
+                    {{errors.state}}
+                  </p>
               </div>
           </div>
           <div class="row">
               <div class="input">
                   <label for="zip">Zip Code</label>
-                  <input formControlName="zip" name="zip"  />
-                  <p class="errors"></p>
+                  <input formControlName="zip" name="zip"  required minlength="5" maxlength="5"/>
+                  <p class="errors" *ngIf="errors.zip">
+                    {{errors.zip}}
+                  </p>
               </div>
               <div class="input">
                   <label for="cellPhone">Cell Phone</label>
-                  <input formControlName="cellPhone" name="cellPhone"  />
-                  <p class="errors"></p>
+                  <input formControlName="cellPhone" name="cellPhone"  required/>
+                  <p class="errors" *ngIf="errors.cellPhone">
+                    {{errors.cellPhone}}
+                  </p>
               </div>
               <div class="input">
                   <label for="homePhone">Home Phone</label>
-                  <input formControlName="homePhone" name="homePhone" />
-                  <p class="errors"></p>
+                  <input formControlName="homePhone" name="homePhone" required/>
+                  <p class="errors" *ngIf="errors.homePhone">
+                    {{errors.homePhone}}
+                  </p>
               </div>
           </div>
           <div class="choices">

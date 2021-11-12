@@ -27,22 +27,25 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  async onSubmit() {
+  async onSubmit(e: Event) {
+    e.preventDefault();
     const data = this.loginForm.value;
     await api.login_service.login(data)
     .then((resp: any) => {
       localStorage.setItem("username", resp.email);
     })
+    .catch(err => {
+      const errorMsg: any = document.getElementById("error");
+      errorMsg.style.display = "inline";
+    })
 
     await api.login_service.authenticate({username: data.email, password: data.password})
       .then((data: any) => {
-        localStorage.setItem("token", data.token);
-      })
-
-      setTimeout(() => {
-        this.router.navigate(["/dashboard"]);
-      }, 1000);
-    console.log("FORM:", this.loginForm.value);
+        if(data.token != null) {
+          localStorage.setItem("token", data.token);
+          this.router.navigate(["/dashboard"])
+        }
+      });
   }
 
 }

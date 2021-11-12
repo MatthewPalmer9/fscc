@@ -15,7 +15,7 @@ const routes: Routes = [
   { path: '', component: IndexComponent, pathMatch: 'full'},
   { path: 'login', component: LoginComponent, pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent, pathMatch: 'full' },
-  { path: 'employee', component: EmployeesComponent, pathMatch: 'full'},
+  { path: 'employee/all', component: EmployeesComponent, pathMatch: 'full'},
   { path: 'employee/:id/view', component: EmployeeViewComponent, pathMatch: 'full'},
   { path: 'employee/:id/edit', component: EmployeeEditComponent, pathMatch: 'full'},
   { path: 'employee/create', component: EmployeeCreateComponent, pathMatch: 'full'},

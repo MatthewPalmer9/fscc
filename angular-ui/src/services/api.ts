@@ -1,4 +1,4 @@
-const API_ROOT: string = "http://localhost:9000";
+const API_ROOT: any = process.env.ANGULAR_APP_API_URL;
 
 const JWT_TOKEN = localStorage.getItem("token");
 

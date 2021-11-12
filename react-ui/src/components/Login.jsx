@@ -18,9 +18,6 @@ export default function Login(props) {
             const errorMsg = document.getElementById("error");
             errorMsg.style.display = "inline";
         })
-        setTimeout(() => {
-            history.push("/dashboard")
-        }, 500);
     }
 
     return (
@@ -38,13 +35,13 @@ export default function Login(props) {
                             <div class="input">
                                 <div class="field">
                                     <div class="email-icon">＠</div>
-                                    <input name="email" type="text" placeholder="Email" required />
+                                    <input onChange={handleChange} name="email" type="text" placeholder="Email" required />
                                 </div>
                             </div>
                             <div class="input">
                                 <div class="field">
                                     <div class="password-icon">🔑</div>
-                                    <input name="password" type="password" placeholder="Password" required />
+                                    <input onChange={handleChange} name="password" type="password" placeholder="Password" required />
                                 </div>
                             </div>
                             <button onClick={onSubmit} id="submit-btn" type="submit">Submit</button>
