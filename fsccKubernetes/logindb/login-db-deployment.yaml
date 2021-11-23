@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-login
+  labels:
+    app: mysql-login
+spec:
+  selector:
+    matchLabels:
+      app: mysql-login
+  template:
+    metadata:
+      labels:
+        app: mysql-login
+    spec:
+      containers:
+      - image: mysql
+        name: mysql
+        ports:
+          - containerPort: 3306
+        volumeMounts:
+          - name: mysql-persistent-storage
+            mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-login-pv-claim
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-login
+  labels:
+    app: mysql-login
+spec:
+  ports:
+  - port: 3306
+    targetPort: 3306
+  selector:
+    app: mysql-login

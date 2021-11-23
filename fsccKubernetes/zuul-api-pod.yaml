@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    backend: "true"
+    app: zuul-api
+  name: zuul-api
+spec:
+  containers:
+    - env:
+        - name: eureka.client.serviceUrl.defaultZone
+          value: http://192.168.59.100:32100/eureka/
+        - name: zuul.routes.employee-service.url
+          value: http://192.168.59.100:8080
+        - name: zuul.routes.login-service.url
+          value: http://192.168.59.100:32615
+      image: mattpdev/zuul-api
+      name: zuul-api
+      ports:
+        - name: http
+          containerPort: 9000
+  restartPolicy: OnFailure

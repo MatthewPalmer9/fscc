@@ -1,0 +1,44 @@
+apiVersion: apps/v1           # API version
+kind: Deployment              # Type of kubernetes resource
+metadata:
+  name: login-service    # Name of the kubernetes resource
+  labels:                     # Labels that will be applied to this resource
+    app: login-service
+spec:
+  replicas: 1                 # No. of replicas/pods to run in this deployment
+  selector:
+    matchLabels:              # The deployment applies to any pods mayching the specified labels
+      app: login-service
+  template:                   # Template for creating the pods in this deployment
+    metadata:
+      labels:                 # Labels that will be applied to each Pod in this deployment
+        app: login-service
+    spec:                     # Spec for the containers that will be run in the Pods
+      containers:
+      - name: login-service
+        image: mattpdev/login-service
+        ports:
+          - name: http
+            containerPort: 8081 # The port that the container exposes
+        env:                  # Environment variables supplied to the Pod
+        - name: SPRING_DATASOURCE_USERNAME # Name of the environment variable
+          value: root
+        - name: SPRING_DATASOURCE_PASSWORD
+          value: password
+        - name: SPRING_DATASOURCE_URL
+          value: jdbc:mysql://mysql-login:3306/login_db
+---
+apiVersion: v1                # API version
+kind: Service                 # Type of the kubernetes resource
+metadata:                     
+  name: login-service    # Name of the kubernetes resource
+  labels:                     # Labels that will be applied to this resource
+    app: login-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: login-service   # The service exposes Pods with label `app=login-service`
+  ports:                      # Forward incoming connections on port 8080 to the target port 8080
+  - name: http
+    port: 8081
+    targetPort: 8081
