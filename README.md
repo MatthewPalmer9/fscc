@@ -84,7 +84,7 @@ The coding challenge should be completed in 4 to 6 weeks.  Code snippets are inc
 > - [Kubernetes for the Absolute Beginner – Hands-on](https://ibm-learning.udemy.com/course/learn-kubernetes/) - 5.5 hours
 
 > #### Tasks
-> - Deploy backend on Minikube using Kubernetes.
+> - Deploy backend on react-ui using Kubernetes.
 > - Deploy the application on a Cloud platform using Kubernetes.
 > - Cloud Platforms:  IBM Cloud, AWS, Azure, GCP, or Red Hat Open Shift
 > - Test Services via Zuul API Gateway using Postman.
@@ -110,14 +110,14 @@ The coding challenge should be completed in 4 to 6 weeks.  Code snippets are inc
 ## Week 8 - Journey to the Cloud II
     
 > #### Tasks
-> - Deploy frontend and backend on Minikube.
+> - Deploy frontend and backend on react-ui.
 > - Deploy the application on a Cloud platform using Kubernetes.
 > - Cloud Platforms:  IBM Cloud, AWS, Azure, GCP, or Red Hat Open Shift
 > - Test application via frontend.  Angular and React frontends should be running in parallel.
 
 
 ## Complete Application Demonstration
-> - Deploy UI and  Backend Services on  Minikube.
+> - Deploy UI and  Backend Services on  react-ui.
 > - UI and Service components must be running on a Cloud platform implemented using Kubernetes.
 > - Be prepared to discuss each application component.
 > - Both UIs must run in parallel

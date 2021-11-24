@@ -90,8 +90,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 	// AUTHENTICATION CHECKER
 	public List<Status> authenticate(String JWT_TOKEN) {
 		List<Status> response = webClientBuilder.build()
-				.get().uri("http://" + env.getProperty("eureka.instance.hostname") +":8081/user/authcheck")
-				.header("Authorization", "Bearer " + JWT_TOKEN)
+				.get().uri("http://"+env.getProperty("zuul.gateway")+"/user/authcheck")
+				.header("Authorization", JWT_TOKEN)
 				.retrieve()
 				.bodyToFlux(Status.class)
 				.onErrorResume(WebClientResponseException.class, 

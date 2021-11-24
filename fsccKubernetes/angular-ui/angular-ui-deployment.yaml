@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: angular-ui
+  labels:
+    app: angular-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: angular-ui
+  template:
+    metadata:
+      labels:
+        backend: "true"
+        app: angular-ui
+    spec:
+      containers:
+      - name: angular-ui
+        image: mattpdev/angular-ui
+        imagePullPolicy: Always
+        name: angular-ui
+        ports:
+          - name: http
+            containerPort: 8081
+      restartPolicy: Always

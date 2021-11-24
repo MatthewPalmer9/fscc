@@ -13,7 +13,7 @@ spec:
         - name: eureka.client.register-with-eureka
           value: "false"
         - name: eureka.client.service-url.defaultZone
-          value: http://192.168.59.100:8761/eureka/
+          value: http://192.168.59.100:32400/eureka/
       image: mattpdev/discovery-service
       name: discovery-service
       ports:

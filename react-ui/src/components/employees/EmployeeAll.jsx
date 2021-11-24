@@ -22,7 +22,6 @@ export default function AllEmployees(props) {
                     <HandleBadCredentials />
             ) : (
                     <>
-                        {console.log(process.env.REACT_APP_API_URL)}
                         <div class="container">
                             <div>
                                 <h1>EMPLOYEE LIST</h1>

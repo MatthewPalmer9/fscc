@@ -71,19 +71,22 @@ services:
       image: mysql:latest #
       restart: on-failure #
       container_name: login_db
+      env_file: .env
       environment: #
         MYSQL_DATABASE: login_db
-        MYSQL_USER: user
-        MYSQL_PASSWORD: password
-        MYSQL_ROOT_PASSWORD: password
+        MYSQL_USER: ${MYSQL_USER}
+        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
         MYSQL_TCP_PORT: 3307
         SQL_INTERNAL_PORT: 3307
       ports: #
         - "3307:3307"
       volumes: 
+        - ./sql/init-login.sql:/data/application/init.sql
         - login_db:/var/lib/mysql 
       networks:
         - backend
+      command: --init-file /data/application/init.sql
     #### REGISTRATION DATABASE ####
     registration-db:
       image: mysql:latest

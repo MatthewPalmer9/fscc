@@ -11,8 +11,8 @@ export default function Index(props) {
             {state.username.length > 0 ? (
                 history.push("/dashboard")
             ) : (
-                <div class="container">
-                    <div class="header">
+                <div className="container">
+                    <div className="header">
                         <h1>Welcome to EmployeeBuddy!</h1>
                         <h3><em>The best place to manage your employees!</em></h3>
                     </div>

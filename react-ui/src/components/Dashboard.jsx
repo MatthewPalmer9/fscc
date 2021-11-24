@@ -28,10 +28,10 @@ export default function Dashboard(props) {
                 <HandleBadCredentials />
             ) : (
                 <>
-                    <div class="container">
-                        <div class="header">
+                    <div className="container">
+                        <div className="header">
                             <h1>Welcome to your dashboard!</h1>
-                            <div class="dashboard-choices">
+                            <div className="dashboard-choices">
                                 <button onClick={redirectToView} id="dash_view_btn">View Employees</button>
                                 <button onClick={redirectToCreate} id="dash_create_btn">Create Employee</button>
                             </div>

@@ -23,8 +23,7 @@ export default function EmployeeCreate(props) {
     }]);
 
     useEffect(() => {
-        api.login_service.authcheck()
-        .then(data => setAuth(data.status))
+        
     }, []);
 
     const handleChange = e => {
@@ -35,9 +34,11 @@ export default function EmployeeCreate(props) {
 
     const handleSubmit = () => {
         const err = validation(employee);
-        setErrors(err)
 
         if(Object.keys(err).length > 0) {
+            console.log("ERRORS: ", err);
+            console.log("EMP OBJ: ", employee);
+            setErrors(err)
             return null;
         } else {
             api.employee_service.createEmployee(employee)
@@ -60,43 +61,43 @@ export default function EmployeeCreate(props) {
                     {auth === 401 ? (
                         <HandleBadCredentials />
                     ) : (
-                        <div class="form_container">
-                            <div class="edit__form">
-                                <div class="title">
+                        <div className="form_container">
+                            <div className="edit__form">
+                                <div className="title">
                                     <h1>Create</h1>
                                 </div>
-                                <div class="rows">
-                                    <div class="row">
+                                <div className="rows">
+                                    <div className="row">
                                         <div class="input">
-                                            <label for="firstName">First Name</label>
-                                            <input minLength="4" maxLength="35" name="firstName" value={employee.firstName}/>
-                                            <p class="errors">{errors?.firstName}</p>
+                                            <label htmlFor="firstName">First Name</label>
+                                            <input onChange={handleChange} minLength="4" maxLength="35" name="firstName" value={employee.firstName}/>
+                                            <p className="errors">{errors?.firstName}</p>
                                         </div>
-                                        <div class="input">
-                                            <label for="lastName">Last Name</label>
-                                            <input minLength="4" maxLength="35" name="lastName" value={employee.lastName} />
-                                            <p class="errors">{errors?.lastName}</p>
+                                        <div className="input">
+                                            <label htmlFor="lastName">Last Name</label>
+                                            <input onChange={handleChange} minLength="4" maxLength="35" name="lastName" value={employee.lastName} />
+                                            <p classname="errors">{errors?.lastName}</p>
                                         </div>
-                                        <div class="input">
-                                            <label for="email">Email</label>
-                                            <input type="email" name="email" value={employee.email} />
-                                            <p class="errors">{errors?.email}</p>
+                                        <div className="input">
+                                            <label htmlFor="email">Email</label>
+                                            <input onChange={handleChange} type="email" name="email" value={employee.email} />
+                                            <p className="errors">{errors?.email}</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="input">
-                                            <label for="address">Address</label>
-                                            <input name="address" value={employee.address} />
-                                            <p class="errors">{errors?.address}</p>
+                                    <div className="row">
+                                        <div className="input">
+                                            <label fhtmlFor="address">Address</label>
+                                            <input onChange={handleChange} name="address" value={employee.address} />
+                                            <p className="errors">{errors?.address}</p>
                                         </div>
-                                        <div class="input">
-                                            <label for="city">City</label>
-                                            <input name="city" value={employee.city} />
-                                            <p class="errors">{errors?.city}</p>
+                                        <div className="input">
+                                            <label htmlFor="city">City</label>
+                                            <input onChange={handleChange} name="city" value={employee.city} />
+                                            <p className="errors">{errors?.city}</p>
                                         </div>
-                                        <div class="input">
-                                            <label for="state">State</label>
-                                            <select name="state" id="state">
+                                        <div className="input">
+                                            <label htmlFor="state">State</label>
+                                            <select onChange={handleChange} name="state" id="state">
                                                 <option defaultValue="--SELECT--" disabled>--SELECT--</option>
                                                 <option value="Alabama">Alabama</option>
                                                 <option value="Alaska">Alaska</option>
@@ -149,24 +150,24 @@ export default function EmployeeCreate(props) {
                                                 <option value="Wyoming">Wyoming</option>
                                                 {/* <option value="Alabama">Alabama</option> */}
                                             </select>
-                                            <p class="errors">{errors?.state}</p>
+                                            <p className="errors">{errors?.state}</p>
                                         </div>
                                     </div>
-                                    <div class="row">
-                                        <div class="input">
-                                            <label for="zip">Zip Code</label>
-                                            <input name="zip" value={employee.zip} />
-                                            <p class="errors">{errors?.zip}</p>
+                                    <div className="row">
+                                        <div className="input">
+                                            <label htmlFor="zip">Zip Code</label>
+                                            <input onChange={handleChange} name="zip" value={employee.zip} />
+                                            <p className="errors">{errors?.zip}</p>
                                         </div>
-                                        <div class="input">
-                                            <label for="cellPhone">Cell Phone</label>
-                                            <input name="cellPhone" value={employee.cellPhone} type="tel"/>
-                                            <p class="errors">{errors?.cellPhone}</p>
+                                        <div className="input">
+                                            <label htmlFor="cellPhone">Cell Phone</label>
+                                            <input onChange={handleChange} name="cellPhone" value={employee.cellPhone} type="tel"/>
+                                            <p className="errors">{errors?.cellPhone}</p>
                                         </div>
-                                        <div class="input">
+                                        <div className="input">
                                             <label for="homePhone">Home Phone</label>
-                                            <input name="homePhone" value={employee.homePhone} type="tel" />
-                                            <p class="errors">{errors?.homePhone}</p>
+                                            <input onChange={handleChange} name="homePhone" value={employee.homePhone} type="tel" />
+                                            <p className="errors">{errors?.homePhone}</p>
                                         </div>
                                     </div>
                                     <button onClick={handleSubmit} id="confirm_changes_btn" type="submit">Confirm</button>

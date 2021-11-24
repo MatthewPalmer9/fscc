@@ -52,44 +52,44 @@ export default function EmployeeEdit(props) {
     };
 
     return (
-        <div class="form_container">
+        <div className="form_container">
             <h1>{employee.firstName + " " + employee.lastName} -- UID: {employee.userId}  </h1>
-            <div class="edit__form">
-                <div class="title">
+            <div className="edit__form">
+                <div className="title">
                     <h1>Edit</h1>
                 </div>
-                <div class="rows">
-                    <div class="row">
-                        <div class="input">
-                            <label for="firstName">First Name</label>
-                            <input name="firstName" value={employee.firstName == null ? "" : employee.firstName}/>
-                            <p class="errors">{errors?.firstName}</p>
+                <div className="rows">
+                    <div className="row">
+                        <div className="input">
+                            <label htmlFor="firstName">First Name</label>
+                            <input onChange={handleChange} name="firstName" value={employee.firstName == null ? "" : employee.firstName}/>
+                            <p className="errors">{errors?.firstName}</p>
                         </div>
-                        <div class="input">
-                            <label for="lastName">Last Name</label>
-                            <input name="lastName" value={employee.lastName == null ? "" : employee.lastName} />
-                            <p class="errors">{errors?.lastName}</p>
+                        <div className="input">
+                            <label htmlFor="lastName">Last Name</label>
+                            <input onChange={handleChange} name="lastName" value={employee.lastName == null ? "" : employee.lastName} />
+                            <p className="errors">{errors?.lastName}</p>
                         </div>
-                        <div class="input">
-                            <label for="email">Email</label>
-                            <input name="email" value={employee.email == null ? "" : employee.email} />
-                            <p class="errors">{errors?.email}</p>
+                        <div className="input">
+                            <label htmlFor="email">Email</label>
+                            <input onChange={handleChange} name="email" value={employee.email == null ? "" : employee.email} />
+                            <p className="errors">{errors?.email}</p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input">
-                            <label for="address">Address</label>
-                            <input name="address" value={employee.address == null ? "" : employee.address} />
-                            <p class="errors">{errors?.address}</p>
+                    <div className="row">
+                        <div className="input">
+                            <label htmlFor="address">Address</label>
+                            <input onChange={handleChange} name="address" value={employee.address == null ? "" : employee.address} />
+                            <p className="errors">{errors?.address}</p>
                         </div>
-                        <div class="input">
-                            <label for="city">City</label>
-                            <input name="city" value={employee.city == null ? "" : employee.city} />
-                            <p class="errors">{errors?.city}</p>
+                        <div className="input">
+                            <label htmlFor="city">City</label>
+                            <input onChange={handleChange} name="city" value={employee.city == null ? "" : employee.city} />
+                            <p className="errors">{errors?.city}</p>
                         </div>
-                        <div class="input">
-                            <label for="state">State</label>
-                            <select name="state" id="state">
+                        <div className="input">
+                            <label htmlFor="state">State</label>
+                            <select onChange={handleChange} name="state" id="state">
                                 <option defaultValue={employee.state}>{employee.state}</option>
                                 <option value="Alabama">Alabama</option>
                                 <option value="Alaska">Alaska</option>
@@ -142,27 +142,27 @@ export default function EmployeeEdit(props) {
                                 <option value="Wyoming">Wyoming</option>
                                 {/* <option value="Alabama">Alabama</option> */}
                             </select>
-                            <p class="errors">{errors?.state}</p>
+                            <p className="errors">{errors?.state}</p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="input">
-                            <label for="zip">Zip Code</label>
-                            <input name="zip" value={employee.zip == null ? "" : employee.zip} />
-                            <p class="errors">{errors?.zip}</p>
+                    <div className="row">
+                        <div className="input">
+                            <label htmlFor="zip">Zip Code</label>
+                            <input onChange={handleChange} name="zip" value={employee.zip == null ? "" : employee.zip} />
+                            <p className="errors">{errors?.zip}</p>
                         </div>
-                        <div class="input">
-                            <label for="cellPhone">Cell Phone</label>
-                            <input name="cellPhone" value={employee.cellPhone == null ? "" : employee.cellPhone} />
-                            <p class="errors">{errors?.cellPhone}</p>
+                        <div className="input">
+                            <label htmlFor="cellPhone">Cell Phone</label>
+                            <input onChange={handleChange} name="cellPhone" value={employee.cellPhone == null ? "" : employee.cellPhone} />
+                            <p className="errors">{errors?.cellPhone}</p>
                         </div>
-                        <div class="input">
-                            <label for="homePhone">Home Phone</label>
-                            <input name="homePhone" value={employee.homePhone == null ? "" : employee.homePhone} />
-                            <p class="errors">{errors?.homePhone}</p>
+                        <div className="input">
+                            <label htmlFor="homePhone">Home Phone</label>
+                            <input onChange={handleChange} name="homePhone" value={employee.homePhone == null ? "" : employee.homePhone} />
+                            <p className="errors">{errors?.homePhone}</p>
                         </div>
                     </div>
-                    <div class="choices">
+                    <div className="choices">
                         <button onClick={handleConfirmChanges} id="confirm_changes_btn" type="submit">Confirm Changes</button>
                         <button onClick={handleDelete} id="delete_btn" type="submit">Delete Employee</button>
                     </div>

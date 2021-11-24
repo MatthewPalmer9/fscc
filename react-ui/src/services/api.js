@@ -49,19 +49,19 @@ const logout = data => {
 }
 
 const employeeAll = () => {
-    return fetch(`${API_ROOT}/employee/all/token=${JWT_TOKEN}`, {
+    return fetch(`${API_ROOT}/employee/all`, {
         headers: headers(),
     }).then(resp => resp.json());
 }
 
 const employeeById = (id) => {
-    return fetch(`${API_ROOT}/employee/${id}/token=${JWT_TOKEN}`, {
+    return fetch(`${API_ROOT}/employee/${id}`, {
         headers: headers(),
     }).then(resp => resp.json());
 };
 
 const createEmployee = data => {
-    return fetch(`${API_ROOT}/employee/create/token=${JWT_TOKEN}`, {
+    return fetch(`${API_ROOT}/employee/create`, {
         method: "POST",
         headers: headers(),
         body: JSON.stringify(data)
@@ -69,15 +69,15 @@ const createEmployee = data => {
 };
 
 const updateEmployee = data => {
-    return fetch(`${API_ROOT}/employee/update/token=${JWT_TOKEN}`, {
+    return fetch(`${API_ROOT}/employee/update`, {
         method: "PATCH",
         headers: headers(),
         body: JSON.stringify(data)
     }).then(resp => resp.json());
 };
 
-const deleteEmployee = data => {
-    return fetch(`${API_ROOT}/employee/delete/token=${JWT_TOKEN}`, {
+const deleteEmployee = async data => {
+    return fetch(`${API_ROOT}/employee/delete`, {
         method: "DELETE",
         headers: headers(),
         body: JSON.stringify(data)

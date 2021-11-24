@@ -31,53 +31,53 @@ export default function EmployeeView(props) {
                 <HandleBadCredentials />
             ) : (
                 <>
-                    <div class="form_container">
+                    <div className="form_container">
                         <h1>{employee.firstName + " " + employee.lastName} -- UID: {employee.userId}  </h1>
-                        <div class="edit__form">
-                            <div class="title">
+                        <div className="edit__form">
+                            <div className="title">
                                 <h1>View</h1>
                             </div>
-                            <div class="rows">
-                                <div class="row">
-                                    <div class="input">
-                                        <label for="firstName">First Name</label>
-                                        <span class="view__field"> {employee.firstName == null ? "" : employee.firstName}</span>
+                            <div className="rows">
+                                <div className="row">
+                                    <div className="input">
+                                        <label htmlFor="firstName">First Name</label>
+                                        <span className="view__field"> {employee.firstName == null ? "" : employee.firstName}</span>
                                     </div>
-                                    <div class="input">
-                                        <label for="lastName">Last Name</label>
-                                        <span class="view__field">{employee.lastName == null ? "" : employee.lastName}</span>
+                                    <div className="input">
+                                        <label htmlFor="lastName">Last Name</label>
+                                        <span className="view__field">{employee.lastName == null ? "" : employee.lastName}</span>
                                     </div>
-                                    <div class="input">
-                                        <label for="email">Email</label>
-                                        <span class="view__field">{employee.email == null ? "" : employee.email}</span>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="input">
-                                        <label for="address">Address</label>
-                                        <span class="view__field">{employee.address == null ? "" : employee.address}</span>
-                                    </div>
-                                    <div class="input">
-                                        <label for="city">City</label>
-                                        <span class="view__field">{employee.city == null ? "" : employee.city}</span>
-                                    </div>
-                                    <div class="input">
-                                        <label for="state">State</label>
-                                        <span class="view__field">{employee.state == null ? "" : employee.state}</span>
+                                    <div className="input">
+                                        <label htmlFor="email">Email</label>
+                                        <span className="view__field">{employee.email == null ? "" : employee.email}</span>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="input">
-                                        <label for="zip">Zip Code</label>
-                                        <span class="view__field">{employee.zip == null ? "" : employee.zip}</span>
+                                <div className="row">
+                                    <div className="input">
+                                        <label htmlFor="address">Address</label>
+                                        <span className="view__field">{employee.address == null ? "" : employee.address}</span>
                                     </div>
-                                    <div class="input">
-                                        <label for="cellPhone">Cell Phone</label>
-                                        <span class="view__field">{employee.cellPhone == null ? "" : employee.cellPhone}</span>
+                                    <div className="input">
+                                        <label htmlFor="city">City</label>
+                                        <span className="view__field">{employee.city == null ? "" : employee.city}</span>
                                     </div>
-                                    <div class="input">
-                                        <label for="homePhone">Home Phone</label>
-                                        <span class="view__field">{employee.homePhone == null ? "" : employee.homePhone}</span>
+                                    <div className="input">
+                                        <label htmlFor="state">State</label>
+                                        <span className="view__field">{employee.state == null ? "" : employee.state}</span>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="input">
+                                        <label htmlFor="zip">Zip Code</label>
+                                        <span className="view__field">{employee.zip == null ? "" : employee.zip}</span>
+                                    </div>
+                                    <div className="input">
+                                        <label htmlFor="cellPhone">Cell Phone</label>
+                                        <span className="view__field">{employee.cellPhone == null ? "" : employee.cellPhone}</span>
+                                    </div>
+                                    <div className="input">
+                                        <label htmlFor="homePhone">Home Phone</label>
+                                        <span className="view__field">{employee.homePhone == null ? "" : employee.homePhone}</span>
                                     </div>
                                 </div>
                                 <button onClick={redirectToEdit} id="confirm_changes_btn" type="submit">Edit Employee</button>

@@ -25,22 +25,22 @@ export default function Login(props) {
             {state.username.length > 0 ? (
                 history.push("/dashboard")
             ) : (
-                <div class="login-container">
-                    <div class="login-form">
-                        <div class="title">
+                <div className="login-container">
+                    <div className="login-form">
+                        <div className="title">
                             <h1>Login</h1>
                         </div>
-                        <div class="form">
+                        <div className="form">
                         <span id="error">Incorrect email or password. Please try again. </span>
-                            <div class="input">
-                                <div class="field">
-                                    <div class="email-icon">＠</div>
+                            <div className="input">
+                                <div className="field">
+                                    <div className="email-icon">＠</div>
                                     <input onChange={handleChange} name="email" type="text" placeholder="Email" required />
                                 </div>
                             </div>
-                            <div class="input">
-                                <div class="field">
-                                    <div class="password-icon">🔑</div>
+                            <div className="input">
+                                <div className="field">
+                                    <div className="password-icon">🔑</div>
                                     <input onChange={handleChange} name="password" type="password" placeholder="Password" required />
                                 </div>
                             </div>
