@@ -24,7 +24,7 @@ Thanks for visiting! There's a lot here, so please take your time.
 
 ## Overview
 > #
-> ![Overview]('./fscc_us.png)
+> ![Overview](./fscc_us.png)
 > #
 
 ## Login
