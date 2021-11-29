@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: mysql-employee
+  name: mysql-employee 
   labels:
     app: mysql-employee
 spec:
@@ -35,7 +35,7 @@ kind: Service
 metadata:
   name: mysql-employee
   labels:
-    app: mysql-employee
+    app: mysql-employee 
 spec:
   ports:
   - port: 3307

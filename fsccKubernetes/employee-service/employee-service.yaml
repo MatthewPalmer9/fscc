@@ -28,9 +28,9 @@ spec:
         - name: SPRING_DATASOURCE_URL
           value: jdbc:mysql://mysql-employee:3307/employee_db
         - name: eureka.client.service-url.defaultZone
-          value: http://192.168.59.100:32400/eureka/
+          value: http://192.168.59.104:32400/eureka/
         - name: zuul.gateway
-          value: 192.168.59.100:32000
+          value: 192.168.59.104:32000
 ---
 apiVersion: v1                # API version
 kind: Service                 # Type of the kubernetes resource

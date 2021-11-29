@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: discovery-service
+  labels:
+    app: discovery-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: discovery-service
+  template:
+    metadata:
+      labels:
+        backend: "true"
+        app: discovery-service
+    spec:
+      containers:
+      - env:
+        - name: eureka.client.fetch-registry
+          value: "false"
+        - name: eureka.client.register-with-eureka
+          value: "false"
+        - name: eureka.client.service-url.defaultZone
+          value: http://192.168.59.104:32400/eureka/
+        name: discovery-service
+        image: mattpdev/discovery-service
+        imagePullPolicy: Always
+        name: discovery-service
+        ports:
+          - name: http
+            port: 8761
+            containerPort: 8761 # The port that the container exposes
+            nodePort: 32400
+      restartPolicy: Always

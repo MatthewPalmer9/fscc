@@ -8,8 +8,8 @@ spec:
   type: LoadBalancer
   ports:
     - name: http
-      port: 8081
+      port: 4200
       targetPort: 4200
       nodePort: 30002
   selector:
-    app: react-ui
+    app: angular-ui

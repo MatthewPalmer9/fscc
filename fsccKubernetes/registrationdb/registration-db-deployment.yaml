@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-registration
+  labels:
+    app: mysql-registration
+spec:
+  selector:
+    matchLabels:
+      app: mysql-registration
+  template:
+    metadata:
+      labels:
+        app: mysql-registration
+    spec:
+      containers:
+      - image: mysql
+        name: mysql
+        ports:
+          - containerPort: 3306
+        env:
+          - name: MYSQL_ROOT_PASSWORD
+            value: password
+        volumeMounts:
+          - name: mysql-persistent-storage
+            mountPath: /var/lib/mysql
+      volumes:
+      - name: mysql-persistent-storage
+        persistentVolumeClaim:
+          claimName: mysql-registration-pv-claim
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mysql-registration
+  labels:
+    app: mysql-registration
+spec:
+  ports:
+  - port: 3308
+    targetPort: 3306
+  selector:
+    app: mysql-registration

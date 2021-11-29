@@ -12,6 +12,7 @@ spec:
     - name: http
       port: 8761
       targetPort: 8761
+      nodePort: 32400
 ---
 apiVersion: apps/v1           # API version
 kind: Deployment              # Type of kubernetes resource
@@ -31,7 +32,7 @@ spec:
     spec:                     # Spec for the containers that will be run in the Pods
       containers:
       - name: discovery-service
-        image: mattpdev/discovery-service
+        image: mattpdev/discovery-service 
         ports:
           - name: http
             containerPort: 8761 # The port that the container exposes
@@ -41,4 +42,4 @@ spec:
         - name: eureka.client.register-with-eureka
           value: "false"
         - name: eureka.client.service-url.defaultZone
-          value: http://192.168.59.100:32400/eureka/
+          value: http://192.168.59.104:32400/eureka/

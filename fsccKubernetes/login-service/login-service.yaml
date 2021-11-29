@@ -28,7 +28,7 @@ spec:
         - name: SPRING_DATASOURCE_URL
           value: jdbc:mysql://mysql-login:3306/login_db
         - name: eureka.client.service-url.defaultZone
-          value: http://192.168.59.100:32400/eureka/
+          value: http://192.168.59.104:32400/eureka/
 ---
 apiVersion: v1                # API version
 kind: Service                 # Type of the kubernetes resource

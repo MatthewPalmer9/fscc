@@ -1,0 +1,36 @@
+apiVersion: apps/v1           
+kind: Deployment             
+metadata:
+  name: zookeeper   
+  labels:                     
+    app: zookeeper
+spec:
+  replicas: 1                 
+  selector:
+    matchLabels:              
+      app: zookeeper
+  template:                   
+    metadata:
+      labels:                 
+        app: zookeeper
+    spec:                    
+      containers:
+      - name: zookeeper
+        image: wurstmeister/zookeeper
+        ports:
+          - name: http
+            containerPort: 2181 
+---
+apiVersion: v1                
+kind: Service                 
+metadata:                     
+  name: zookeeper  
+  labels:                     
+    app: zookeeper
+spec:
+  selector:
+    app: zookeeper  
+  ports:                      
+  - name: zookeeper-port
+    port: 2181
+    targetPort: 2181

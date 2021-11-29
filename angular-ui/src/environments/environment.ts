@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   title: 'EmployeeBuddy',
-  apiURL: 'http://192.168.59.100:32000'
+  apiURL: 'http://192.168.59.101:32000'
 };
 
 /*

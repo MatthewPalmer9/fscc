@@ -18,12 +18,12 @@ spec:
       containers:
       - env:
             - name: REACT_APP_API_URL
-              value: http://192.168.59.100:32000
+              value: http://192.168.59.104:32000
         name: react-ui
         image: mattpdev/react-ui
         imagePullPolicy: Always
         name: react-ui
         ports:
           - name: http
-            containerPort: 8080
+            containerPort: 3000
       restartPolicy: Always

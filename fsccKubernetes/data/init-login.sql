@@ -9,4 +9,4 @@ CREATE TABLE IF NOT EXISTS users (
     UNIQUE(email)
 );
 
-insert into users (id, email, password) values (1, 'admin@developer.com', '$2a$10$PSutxF8kg65/RRh61gl1q.WI8kS.Gzd.rK0EDpR4QSqW7anpPgTfG');
+insert into users (id, email, password) values (1, 'admin@developer.com', '$2a$10$PSutxF8kg65/RRh61gl1q.WI8kS.Gzd.rK0EDpR4QSqW7anpPgTfG', true);

@@ -22,5 +22,5 @@ spec:
         name: angular-ui
         ports:
           - name: http
-            containerPort: 8081
-      restartPolicy: Always
+            containerPort: 4200
+      restartPolicy: Always 

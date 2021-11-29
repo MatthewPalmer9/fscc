@@ -13,7 +13,7 @@ public class EmployeeEntity {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-    private Long id;
+    private long id;
 	@Column(name="firstName")
     private String firstName;
 	@Column(name="lastName")

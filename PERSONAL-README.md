@@ -23,3 +23,6 @@ I ran these commands with VirtualBox running.
 `kubectl apply -f your-service-or-deployment.yaml`
 `minikube ip` <-- To get the internal cluster IP
 `Waited for the pod to create/pull docker image & accessed the application in my local browser: http://{minikube-host-ip}:{port-number}`
+
+# PVC stuck in 'Terminating'?
+`kubectl patch pvc PVC_NAME -p '{"metadata":{"finalizers":null}}'`
