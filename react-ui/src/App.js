@@ -23,17 +23,17 @@ function App() {
     }
   }, []);
 
-  const login = data => {
+  const login = data => { // learn lazy-loading
     return api.login_service.login(data)
-    .then(data => {
-      localStorage.setItem("username", data.email);
-      return setState(prevState => ({...prevState, username: data.email}))
-    }).then(api.login_service.authenticate({username: data.email, password: data.password})
-        .then(data => {
-          localStorage.setItem("token", data.token)
-          return setState(prevState => ({...prevState, token: data.token}));
-        })
-    )
+      .then(data => {
+        localStorage.setItem("username", data.email);
+        return setState(prevState => ({...prevState, username: data.email}))
+      }).then(api.login_service.authenticate({username: data.email, password: data.password})
+          .then(data => {
+            localStorage.setItem("token", data.token)
+            return setState(prevState => ({...prevState, token: data.token}));
+          })
+      )
   }
 
   const logout = () => {

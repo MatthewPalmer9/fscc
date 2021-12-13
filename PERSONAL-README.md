@@ -14,6 +14,7 @@ K8S Commands
 - `kubectl apply -f <folder-name>`
 - `kubectl apply -f <file-name>`
 - `kubectl exec --stdin --tty POD_NAME -- /bin/bash` <= To access pod shell
+- `kubectl exec -it POD_NAME -- bash` <= MySQL bash
 
 # IMPORTANT: Docker as a driver is bad juju
 Using docker as the driver for minikube will fail you on MacOS & Windows. It isn't supported on any other OS but Linux. Since most people have linux, this is the fix:

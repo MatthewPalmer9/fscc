@@ -17,9 +17,9 @@ import io.jsonwebtoken.SignatureAlgorithm;
 @Component
 public class JwtTokenUtil implements Serializable {
 
-	private static final long serialVersionUID = -2550185165626007488L;
+	private static final long serialVersionUID = -2550185165626007488L; // env.getProperty(serialVersionUID)
 	
-	public static final long JWT_TOKEN_VALIDITY = 5*60*60;
+	public static final long JWT_TOKEN_VALIDITY = 5*60*60; // env.getProperty(JWT_TOKEN_VALIDITY)
 	
 	@Value("${jwt.secret}")
 	private String secret;
@@ -61,7 +61,6 @@ public class JwtTokenUtil implements Serializable {
 	}
 
 	private String doGenerateToken(Map<String, Object> claims, String subject) {
-
 		return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
 				.setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY*1000)).signWith(SignatureAlgorithm.HS512, secret).compact();
 	}

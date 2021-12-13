@@ -13,7 +13,7 @@ spec:
         - name: zuul.routes.employee-service.url
           value: http://192.168.59.104:32727
         - name: zuul.routes.login-service.url
-          value: http://192.168.59.104:30589
+          value: http://192.168.59.104:30570
       image: mattpdev/zuul-api
       name: zuul-api
       ports:

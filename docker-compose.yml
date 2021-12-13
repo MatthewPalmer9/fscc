@@ -12,19 +12,19 @@ services:
 
   #### REACT UI ####
     react-ui:
-      image: mattpdev/react-ui
-      build:
+      image: mattpdev/react-ui # docker will run a container based on the build
+      build: # will first build an image based on the Dockerfile found in the path associated with build (and then run a container based on that image).
         context: ./react-ui
         dockerfile: Dockerfile
-      container_name: react-ui
+      container_name: react-ui # names the container
       ports: 
-        - "3000:3000"
+        - "3000:3000" # HOST:CONTAINER
       environment:
         - REACT_APP_API_URL=http://localhost:9000
       depends_on:
         - zuul-api
-      networks:
-        - backend
+      networks: # if not created, docker creates a default network
+        - backend # should be on two networks, frontend/backend -- API Gateway should be on both
   ### ANGULAR UI ####
     angular-ui:
       image: angular-ui
@@ -55,9 +55,9 @@ services:
       env_file: .env
       environment: #
         MYSQL_DATABASE: employee_db
-        MYSQL_USER: ${MYSQL_USER}
-        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_USER: user
+        MYSQL_PASSWORD: password
+        MYSQL_ROOT_PASSWORD: password
         MYSQL_TCP_PORT: 3306
         SQL_INTERNAL_PORT: 3306
       ports: #
@@ -243,10 +243,6 @@ services:
           - /tmp/docker/kafka1/logs:/logs
           - /tmp/docker/kafka1/data:/data
       environment:
-        # KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: DOCKER_INTERNAL:PLAINTEXT,DOCKER_EXTERNAL:PLAINTEXT
-        # KAFKA_LISTENERS: DOCKER_INTERNAL://:29092,DOCKER_EXTERNAL://:9092
-        # KAFKA_ADVERTISED_LISTENERS: DOCKER_INTERNAL://kafka:29092,DOCKER_EXTERNAL://${DOCKER_HOST_IP:-127.0.0.1}:9092
-        # KAFKA_INTER_BROKER_LISTENER_NAME: DOCKER_INTERNAL
         KAFKA_ADVERTISED_HOST_NAME: kafka
         KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
         KAFKA_BROKER_ID: 1

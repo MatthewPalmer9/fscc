@@ -20,6 +20,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Autowired
 	DataSource dataSource;
 
+	private static final String EMP_ROUTE = "/employee/*";
+	private static final String EMP_NESTED_ROUTE = "/employee/**";
 
 	// ENABLES USE OF BCryptPasswordEncoder THROUGHOUT APPLICATION
 	@Autowired
@@ -28,24 +30,23 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		.dataSource(dataSource);
 	}
 	
-	@Bean
-	@LoadBalanced
-	public RestTemplate restTemplate() {
-	    return new RestTemplate();
-	}
+	// @Bean
+	// @LoadBalanced
+	// public RestTemplate restTemplate() { // This entire block was used for testing / serves no current purpose
+	//     return new RestTemplate();
+	// }
 	
 	// PERMITS RESTful API REQUESTS TO ROUTES 
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
-		http.csrf().disable().cors().and().authorizeRequests()
+		http.csrf().disable().cors().and().authorizeRequests() // explain csrf & why it's disabled
 	    .antMatchers("/").permitAll()
-	    .antMatchers(HttpMethod.POST, "/employee/*").permitAll()
-	    .antMatchers(HttpMethod.PATCH,"/employee/**").permitAll()
-	    .antMatchers(HttpMethod.DELETE, "/employee/**").permitAll()
-	    .antMatchers(HttpMethod.GET,"/employee/*").permitAll()
-	    .antMatchers(HttpMethod.GET,"/employee/**").permitAll()
-	    .antMatchers(HttpMethod.POST,"/employee/**").permitAll()
+	    .antMatchers(HttpMethod.POST, EMP_ROUTE).permitAll() // look up making constants
+	    .antMatchers(HttpMethod.PATCH, EMP_ROUTE + "*").permitAll()
+	    .antMatchers(HttpMethod.DELETE, EMP_ROUTE + "*").permitAll()
+	    .antMatchers(HttpMethod.GET, EMP_ROUTE).permitAll()
+	    .antMatchers(HttpMethod.GET, EMP_ROUTE + "*").permitAll()
+	    .antMatchers(HttpMethod.POST, EMP_ROUTE + "*").permitAll()
 	    .anyRequest().authenticated();
 	}
-	
 }

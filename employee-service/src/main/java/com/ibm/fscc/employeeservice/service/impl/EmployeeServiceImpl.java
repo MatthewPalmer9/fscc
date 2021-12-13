@@ -93,7 +93,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 				.get().uri("http://"+env.getProperty("zuul.gateway")+"/user/authcheck")
 				.header("Authorization", JWT_TOKEN)
 				.retrieve()
-				.bodyToFlux(Status.class)
+				.bodyToFlux(Status.class) // look up reactive programming -- non-blocking async calls
 				.onErrorResume(WebClientResponseException.class, 
 						err -> err.getRawStatusCode() == 401 ? Flux.empty() : Mono.error(err))
 				.collectList().block();

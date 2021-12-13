@@ -17,11 +17,11 @@ import com.ibm.fscc.employeeservice.data.EmployeeEntity;
 import com.ibm.fscc.employeeservice.service.EmployeeService;
 
 @RestController
-@CrossOrigin(origins="*")
+@CrossOrigin(origins="*") // should not even be here
 @RequestMapping(path = "/employee")
 public class EmployeeController {
 	
-	@Autowired
+	@Autowired // injecting dependencies / beans
 	private Environment env;
 	
 	@Autowired
