@@ -73,7 +73,6 @@ public class LoginController {
 		return loginService.loginUser(payload);
 	}
 	
-	
 	@PostMapping(path="/logout")
 	public Object logout(@RequestBody LoginEntity payload) {
 		return loginService.logoutUser(payload);

@@ -17,7 +17,7 @@ import com.ibm.fscc.employeeservice.data.EmployeeEntity;
 import com.ibm.fscc.employeeservice.service.EmployeeService;
 
 @RestController
-@CrossOrigin(origins="*") // should not even be here
+@CrossOrigin(origins="*") // should not even be here, but kept for reference
 @RequestMapping(path = "/employee")
 public class EmployeeController {
 	
@@ -27,6 +27,7 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
 	
+	// REST MAPPINGS
 	@GetMapping(path = "/status/check")
 	public @ResponseBody String status() {
 		return "Working on port " + env.getProperty("server.port") + "!";

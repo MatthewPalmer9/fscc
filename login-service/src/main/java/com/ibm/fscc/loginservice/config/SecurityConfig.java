@@ -33,6 +33,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	private JwtRequestFilter jwtRequestFilter;
+	
+	private static final String USER_ROUTE = "/user";
 
 	// SETS PasswordEncoder TO BCryptPasswordEncoder
 	@Bean
@@ -63,8 +65,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configure(HttpSecurity http) throws Exception {
 		http.csrf().disable().cors().and().authorizeRequests()
 			.antMatchers("/").permitAll()
-			.antMatchers(HttpMethod.POST, "/user/login").permitAll()
-			.antMatchers(HttpMethod.POST, "/user/authenticate").permitAll()
+			.antMatchers(HttpMethod.POST, USER_ROUTE + "/login").permitAll()
+			.antMatchers(HttpMethod.POST, USER_ROUTE + "/authenticate").permitAll()
 		    .anyRequest().authenticated().and()
 		    .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint).and().sessionManagement()
 		    .sessionCreationPolicy(SessionCreationPolicy.STATELESS);

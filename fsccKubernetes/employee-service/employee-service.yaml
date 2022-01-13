@@ -1,4 +1,4 @@
-apiVersion: apps/v1           # API version
+apiVersion: apps/v1           # includes functionality related to running applications on Kubernetes, like Deployments, RollingUpdates, and ReplicaSets.
 kind: Deployment              # Type of kubernetes resource
 metadata:
   name: employee-service    # Name of the kubernetes resource

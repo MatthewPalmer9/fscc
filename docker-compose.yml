@@ -19,12 +19,12 @@ services:
       container_name: react-ui # names the container
       ports: 
         - "3000:3000" # HOST:CONTAINER
-      environment:
+      environment: # env variables
         - REACT_APP_API_URL=http://localhost:9000
-      depends_on:
+      depends_on: # services that this service depends on which will need to start before this one
         - zuul-api
       networks: # if not created, docker creates a default network
-        - backend # should be on two networks, frontend/backend -- API Gateway should be on both
+        - frontend
   ### ANGULAR UI ####
     angular-ui:
       image: angular-ui
@@ -37,7 +37,7 @@ services:
       depends_on:
         - zuul-api
       networks:
-        - backend
+        - frontend
 
   #   /\     /\        /\        /\        /\        /\     /\
   #  /--\___/--\__/\__/--\__/\__/--\__/\__/--\__/\__/--\___/--\
@@ -52,7 +52,6 @@ services:
       image: mysql:latest #
       restart: on-failure #
       container_name: employee_db
-      env_file: .env
       environment: #
         MYSQL_DATABASE: employee_db
         MYSQL_USER: user
@@ -89,12 +88,11 @@ services:
       image: mysql:latest
       restart: on-failure
       container_name: registration_db
-      env_file: .env
       environment: #
         MYSQL_DATABASE: registration_db
-        MYSQL_USER: ${MYSQL_USER}
-        MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-        MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+        MYSQL_USER: user
+        MYSQL_PASSWORD: user
+        MYSQL_ROOT_PASSWORD: password
         MYSQL_TCP_PORT: 3308
         SQL_INTERNAL_PORT: 3308
       ports: #
@@ -128,8 +126,6 @@ services:
         - spring.datasource.password=password
       depends_on: 
         - employee-db
-        - discovery-service
-        - zuul-api
       ports:
         - "8080:8080"
       networks:
@@ -149,7 +145,6 @@ services:
         - spring.datasource.password=root
       depends_on: 
         - login-db
-        # - discovery-service
       ports:
         - "8081:8081"
       networks:
@@ -202,7 +197,7 @@ services:
   #   \/                       \-\/-/                       \/
   #                             \/\/
 
-    #### ZUUL API ####
+    #### ZUUL API #### - API Gateway in coordination with Eureka Discovery Service
     zuul-api:
       image: zuul-api
       build:
@@ -218,7 +213,8 @@ services:
         - "9000:9000"
       networks:
         - backend
-    #### ZOOKEEPER ####
+        - frontend
+    #### ZOOKEEPER #### - Filesystem API Used by Kafka to store metadata (location of partions & configuration of topics)
     zookeeper:
       image: zookeeper
       container_name: zookeeper
@@ -230,7 +226,7 @@ services:
       volumes:
         - /tmp/docker/zk1/logs:/logs
         - /tmp/docker/zk1/data:/data
-    #### KAFKA ####
+    #### KAFKA #### - Real-time streaming data pipelines
     kafka:
       image: wurstmeister/kafka
       container_name: kafka
@@ -276,3 +272,4 @@ volumes:
 
 networks:
   backend:
+  frontend:
